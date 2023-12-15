@@ -1,0 +1,16 @@
+.boxTask {
+  background: var(--gray-500);
+  padding: 1.6rem;
+  border-radius: 8px;
+
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+}
+
+.btnTrash {
+  line-height: 0;
+  background: transparent;
+  border: none;
+  color: var(--gray-300);
+}

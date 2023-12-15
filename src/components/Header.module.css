@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 7.5rem 0;
+  background: var(--gray-700);
+  width: 100%;
+}
+
+.iconeLogo {
+  margin-right: 1.2rem;
+}
+
+h1 {
+  font-size: 4rem;
+  font-weight: 900;
+  color: var(--blue-500);
+}
+h1 span {
+  color: var(--purple-700);
+}
