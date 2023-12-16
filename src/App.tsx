@@ -28,7 +28,8 @@ export function App() {
             </header>
 
             <section className={style.content}>
-              <Task />
+              <Task content='Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.'/>
+              <Task content='Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.'/>
             </section>
 
             <section className={style.emptyContent}>
