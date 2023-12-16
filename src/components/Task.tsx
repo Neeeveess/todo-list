@@ -1,33 +1,39 @@
 import { FormEvent, useState } from 'react'
-import { Trash } from 'phosphor-react'
+import { CheckCircle, Circle, Trash } from 'phosphor-react'
 import style from './Task.module.css'
 
-import circle from '../assets/images/circle.svg'
-import concludedTask from '../assets/images/concludedTask.svg'
 
 
 interface TaskProps {
   content?: string,
+  deleteTask: (taskToDelete: string) => void,
+  setConcludedTask: (concludedTask: number) => void
 }
 
-export function Task({content = 'Conteudos'}: TaskProps){
+export function Task({content = 'Conteudos', deleteTask, setConcludedTask }: TaskProps){
 
   const [checked, setChecked] = useState(false);
+  
 
   const handleClickButton = (e: FormEvent) => {
     e.preventDefault();
     setChecked(prevCheked => !prevCheked)
+    setConcludedTask((state) => (prevChecked ? state - 1 : state + 1));
+  }
+
+  const handleDeleteTask = () => {
+    deleteTask(content)
   }
 
   return(
     <article className={style.boxTask}>
       <button onClick={handleClickButton} className={style.checkbox}>
-        <img src={checked ? concludedTask : circle} alt="" />
+        {checked ? <CheckCircle size={24}  weight="fill" className={style.checkCircle} /> : <Circle size={24}/>}
       </button>
       <p className={style.content}>
         {content}
       </p>
-      <button className={style.btnTrash}><Trash/></button>
+      <button onClick={handleDeleteTask} className={style.btnTrash}><Trash size={24}/></button>
     </article>
   )
 }
