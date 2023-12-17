@@ -22,7 +22,7 @@ export function Task({content = 'Conteudos', deleteTask, setConcludedTask }: Tas
   }
 
   const handleDeleteTask = () => {
-    deleteTask(content)
+    deleteTask(content)    
   }
 
   return(

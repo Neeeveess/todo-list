@@ -7,7 +7,7 @@ import { Header } from './components/Header'
 import { Task } from './components/Task'
 
 export function App() {
-  const [tasks, setTasks] = useState([''])
+  const [tasks, setTasks] = useState<string[]>([]);
 
   const [taskText, setTaskText] = useState('')
 
@@ -37,11 +37,11 @@ export function App() {
             <header>
               <div className={style.createdTasks}>
                 <h3>Tarefas criadas</h3>
-                <span>{tasks.length -1}</span>
+                <span>{tasks.length}</span>
               </div>
               <div className={style.completedTasks}>
                 <h3>Concluidas</h3>
-                <span>{concludedTask} de {tasks.length -1}</span>
+                <span>{concludedTask} de {tasks.length}</span>
               </div>
             </header>
 

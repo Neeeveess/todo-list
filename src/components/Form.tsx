@@ -22,8 +22,10 @@ export function Form({tasks , setTasks,taskText,  setTaskText}:StatesProps){
   const handleNewTodoList = (e: FormEvent) =>{
     e.preventDefault();
 
-    setTasks([...tasks, taskText])
-    setTaskText('')
+    if (taskText.trim() !== '') {
+      setTasks([...tasks, taskText.trim()]);
+      setTaskText('');
+    }
   }
 
   return(
