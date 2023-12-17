@@ -7,7 +7,7 @@ import style from './Task.module.css'
 interface TaskProps {
   content?: string,
   deleteTask: (taskToDelete: string) => void,
-  setConcludedTask: (concludedTask: number) => void
+  setConcludedTask: React.Dispatch<React.SetStateAction<number>>
 }
 
 export function Task({content = 'Conteudos', deleteTask, setConcludedTask }: TaskProps){
@@ -18,7 +18,7 @@ export function Task({content = 'Conteudos', deleteTask, setConcludedTask }: Tas
   const handleClickButton = (e: FormEvent) => {
     e.preventDefault();
     setChecked(prevCheked => !prevCheked)
-    setConcludedTask((state) => (prevChecked ? state - 1 : state + 1));
+    setConcludedTask((state) => (checked ? state - 1 : state + 1));
   }
 
   const handleDeleteTask = () => {
@@ -30,7 +30,7 @@ export function Task({content = 'Conteudos', deleteTask, setConcludedTask }: Tas
       <button onClick={handleClickButton} className={style.checkbox}>
         {checked ? <CheckCircle size={24}  weight="fill" className={style.checkCircle} /> : <Circle size={24}/>}
       </button>
-      <p className={style.content}>
+      <p className={checked ? style.contentChecked : style.content}>
         {content}
       </p>
       <button onClick={handleDeleteTask} className={style.btnTrash}><Trash size={24}/></button>
